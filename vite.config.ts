@@ -26,6 +26,10 @@ export default defineConfig({
         tailwindcss(),
         wayfinder({
             formVariants: true,
+            // Overridable so container builds can skip PHP (types are committed).
+            command:
+                process.env.WAYFINDER_COMMAND ??
+                'php artisan wayfinder:generate',
         }),
     ]),
     server: {
