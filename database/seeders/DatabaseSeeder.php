@@ -38,7 +38,13 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info('Demo user created: username "admin" / password "password"');
 
-        $products = Product::factory()->count(5)->create();
+        $products = collect([
+            ['name' => 'Aki GS Astra NS40 12V 35Ah', 'description' => 'Aki kering maintenance free untuk mobil kecil, kapasitas 12V 35Ah.', 'price' => 650_000, 'stock' => 20],
+            ['name' => 'Filter Oli Denso 115010-5021', 'description' => 'Filter oli orisinal untuk Toyota Avanza dan Xenia.', 'price' => 45_000, 'stock' => 50],
+            ['name' => 'Filter Solar Sakura FS-2012', 'description' => 'Filter solar untuk mesin diesel common rail.', 'price' => 85_000, 'stock' => 30],
+            ['name' => 'Busi Iridium NGK BKR6EIX', 'description' => 'Busi iridium performa tinggi dengan umur pakai lebih lama.', 'price' => 95_000, 'stock' => 40],
+            ['name' => 'Oli Mesin Castrol Magnatec 10W-40 1L', 'description' => 'Oli mesin semi-sintetik dengan perlindungan ekstra saat start dingin.', 'price' => 120_000, 'stock' => 35],
+        ])->map(fn (array $data) => Product::create($data));
 
         // Seed stock so every product has sellable inventory.
         foreach ($products as $product) {

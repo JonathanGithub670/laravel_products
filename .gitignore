@@ -27,3 +27,10 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Exclude all .md files except README.md
+*.md
+!README.md
+
+# Exclude .agents directory
+/.agents
