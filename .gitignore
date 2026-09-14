@@ -28,9 +28,10 @@ yarn-error.log
 /.vscode
 /.zed
 
-# Exclude all .md files except README.md
+# Exclude all .md files except README.md and direction.md
 *.md
 !README.md
+!direction.md
 
 # Exclude .agents directory
 /.agents
